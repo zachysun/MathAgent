@@ -1,0 +1,38 @@
+base_solving_task:
+  description: >
+    Please solve this mathematical problem using deductive reasoning: {problem},
+    Be rigorous in your reasoning. Show each step clearly. Verify your answer when possible.
+    You have access to mathematical tools that can help with calculations.
+  expected_output: >
+    Provide brief reasoning steps and return the answer within \\boxed{{}}.
+  agent: base_reasoner
+
+selection_task:
+  description: >
+    Your task is to analyze multiple proposed answers to a mathematical problem and select the most reliable one.
+    After evaluating all solutions, select the best one and provide a brief explanation for your choice.
+    ===== PROBLEM =====
+    {problem}
+    ===== ANSWERS =====
+    {answer_list}
+  expected_output: >
+    Provide a brief explanation and return your selected answer within \\boxed{{}}.
+  agent: selector
+
+validation_task:
+  description: >
+    You are a rigorous mathematical verification expert. 
+    Your task is to verify a proposed answer to a mathematical problem with extreme thoroughness.
+    If the answer is correct, state so clearly. If you find any errors, provide a revised answer.
+    ===== PROBLEM =====
+    {problem}
+    ===== PROPOSED ANSWER =====
+    {answer}
+  expected_output: >
+    ===== OUTPUT FORMAT =====
+    VERIFICATION RESULT:
+    [Either "VERIFICATION: CORRECT" or "VERIFICATION: INCORRECT"]
+    If incorrect, provide the corrected answer.
+    Return the final answer within \\boxed{{}}.
+
+  agent: validator
