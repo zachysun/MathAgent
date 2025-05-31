@@ -1,4 +1,4 @@
-# Math Agent build with AI frameworks
+# Math Agent build with AI Agent frameworks
 ## Notes
 This project is for reference and introductory learning only, for more information on the features and usage of each framework, please read the official documentation.
 
